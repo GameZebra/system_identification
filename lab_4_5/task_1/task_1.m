@@ -8,5 +8,8 @@ T0 = 1;
 Wd = c2d(W, T0);
 
 % in simulink
-% Wd.num{1}
-% Wd.den{1}
+Wd.num{1}
+Wd.den{1}
+
+figure(1), hold on;
+step(W), step(Wd);
