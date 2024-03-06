@@ -31,7 +31,7 @@ plot(exp4(1,:), exp4(3,:));
 plot(exp5(1,:), exp5(3,:));
 plot(exp6(1,:), exp6(3,:));
 
-subplot(212), grid on;
+subplot(212), hold on, grid on;
 exp_sum = [];
 exp_average = [];
 for i = 1:length(exp1(1,:))
@@ -39,6 +39,11 @@ for i = 1:length(exp1(1,:))
     exp_average(i) = exp_sum(i) ./ 6; 
 end
 plot(exp1(1,:), exp_average)
+
+fid = fopen('h_etalon.txt', 'w');
+fprintf(fid, '%f\n', exp_average);
+fclose(fid);
+
 
 
 
