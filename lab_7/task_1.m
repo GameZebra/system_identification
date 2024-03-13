@@ -50,14 +50,45 @@ data2 = iddata(y2, u, T0);
 na = length(A)-1;
 nk = 1;
 nb = length(B)-nk;
-th = arx(data0, [na, nb, nk]);
+th0 = arx(data0, [na, nb, nk]);
 th1 = arx(data1, [na, nb, nk]);
 th2 = arx(data2, [na, nb, nk]);
 
 present(matrix)
-present(th)
+present(th0)
 present(th1)
 present(th2)
+%compare(data2,th2)
 
+% task_5
+figure(4)
+iopzplot(th0, 'sd', 3)
+figure(5)
+iopzplot(th1, 'sd', 3)
+figure(6)
+iopzplot(th2, 'sd', 3)
+
+
+figure(7)
+nyquist(th0, 'sd', 3)
+figure(8)
+nyquist(th1, 'sd', 3)
+figure(9)
+nyquist(th2, 'sd', 3)
+
+figure(10)
+bode(th0, 'sd', 3)
+figure(11)
+bode(th1, 'sd', 3)
+figure(12)
+bode(th2, 'sd', 3)
+
+figure(13)
+subplot(311)
+step(th0, 'sd', 3)
+subplot(312)
+step(th1, 'sd', 3)
+subplot(313)
+step(th2, 'sd', 3)
 
 
